@@ -21,7 +21,7 @@ __log = log.getLogger( __name__ )
 
 
 
-if __name__ == "__main__" :
+def main():
 
 	parser = argparse.ArgumentParser( description = 'Browses inside a {0} image'.format( defs.program_name ) )
 
@@ -63,3 +63,6 @@ if __name__ == "__main__" :
 
 	satori_shell = SatoriShell(image)
 	satori_shell.cmdloop(  )
+
+if __name__ == "__main__" :
+    main()

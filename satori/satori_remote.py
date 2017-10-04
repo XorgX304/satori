@@ -34,8 +34,8 @@ __log = log.getLogger( __name__ )
 
 
 
-if __name__ == "__main__" :
 
+def main():
 
 	parser = argparse.ArgumentParser( description = 'Creates a Satori image from a remote OS using SSH' )
 
@@ -196,4 +196,5 @@ if __name__ == "__main__" :
 	__log.info( "SSH session closed!" )
 
 
-
+if __name__ == "__main__" :
+    main()

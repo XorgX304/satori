@@ -20,7 +20,7 @@ __log = log.getLogger( __name__ )
 
 
 
-if __name__ == "__main__" :
+def main():
 
 	parser = argparse.ArgumentParser( description = 'Deeply diffs 2 satori Images' )
 
@@ -104,3 +104,7 @@ if __name__ == "__main__" :
 
 	differ.diffSystem( image1, image2, root_dir )
 	__log.warning( "\n" )
+
+if __name__ == "__main__" :
+    
+    main()

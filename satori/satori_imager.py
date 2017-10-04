@@ -29,7 +29,8 @@ __log = log.getLogger( __name__ )
 
 
 
-if __name__ == "__main__" :
+
+def main():
 
 	os_def_name = plat.platform()
 
@@ -191,3 +192,6 @@ if __name__ == "__main__" :
 	__log.warning( 'Image generated! Creating File...' )
 	io.saveImage( outfile, fs, args.type )
 
+
+if __name__ == "__main__" :
+    main()
