@@ -17,15 +17,15 @@ Full Blog Post: https://securosophy.com/2016/08/10/the-satori-suite/
 
 It is named after the spontaneous feeling of absolute knowledge, an analyst feels when he/she finally understands what exactly is happening in a system or network!
 
-<i>The idea (and inspiration) for development of this tool came from mr. Vivek Ramachandran, [Securitytube.net](Securitytube.net) founder, as the main project for Module 8 of the *'SecurityTube Python Scripting Expert (SPSE)' Course*. I thank him from the bottom of my heart for his contribution in security community (and my personal development)!</i>
-<p><br>
+The idea (and inspiration) for development of this tool came from mr. Vivek Ramachandran, [Securitytube.net](Securitytube.net) founder, as the main project for Module 8 of the *'SecurityTube Python Scripting Expert (SPSE)' Course*. I thank him from the bottom of my heart for his contribution in security community (and my personal development)!
 
 # Suite Description
-<p>
-###Satori has 3 basic tools (and 1 that is not that basic!):
-####<i>satori-imager</i>
 
-  <b>Satori Imager</b> creates images of a File System saving key elements for each file like: _filename_(duh!), _privileges_, _size_, _type_, _text content_ and _hash_ (if chosen), while maintaining the File System's tree-like structure.
+## Satori has 3 basic tools (and 1 *not that basic*):
+
+### *satori-imager*
+
+  **Satori Imager** creates images of a File System saving key elements for each file like: _filename_(duh!), _privileges_, _size_, _type_, _text content_ and _hash_ (if chosen), while maintaining the File System's tree-like structure.
 The images are saved as (gzipped) Json files or python Pickles and also contain metadata about the system such as user that did the image dump, date of the image dump, system 'uname' and more.
 ```
 usage: satori-imager.py [-h] [--type {pickle,json,sqlite}] [--no-gzip]
@@ -35,11 +35,11 @@ usage: satori-imager.py [-h] [--type {pickle,json,sqlite}] [--no-gzip]
 
 Crawls the whole filesystem and creates an image of it to a file.
 ```
-<p><p><br>
 
-####<i>satori-remoter</i>
+### *satori-remoter*
 
-Now imagine the <b>Satori Imager</b> all via SSH. This is <b>Satori Remoter</b>
+Now imagine the **Satori Imager** all via SSH. This is **Satori Remoter**
+
 ```
 $ ./satori-remote.py user@10.0.2.15 -v --argument '--threads 4 -v'
 Password: 
@@ -61,12 +61,11 @@ SSH session closed!
 ```
 Gets the image via SFTP and optionally purges the Satori executables from the target machine
 
-<p><p><br>
-####<i>satori-browser</i>
+### *satori-browser*
 
-  <b>Satori Browser</b> is a tool that loads those image files and spawns a custom UNIX-like shell in the underlying File System. The user can freely '*ls*', '*cd*' and '*stat*' all files in the FileSystem image.<p>
-The shell's capabilities depend on the choices made when creating the image, for example: if <b>Satori Imager</b> was configured to dump text content of files then, also, a '*cat*' command would be available.
-<p>
+  **Satori Browser** is a tool that loads those image files and spawns a custom UNIX-like shell in the underlying File System. The user can freely `ls`, `cd` and `stat` all files in the FileSystem image.
+The shell's capabilities depend on the choices made when creating the image, for example: if **Satori Imager** was configured to dump text content of files then, also, a '*cat*' command would be available.
+
 ``` Example
 {Satori} n0p_sl3d@kali-laptop / $ ls 
 0               dev             initrd.img      lib32           live-build      opt             run             sys             var
@@ -84,9 +83,9 @@ boot            home            lib             libx32          media           
 	size : 2825
 {Satori} n0p_sl3d@kali-laptop /etc $ 
 ```
-<p><p><br>
 
-####<i>satori-differ</i>
+### *satori-differ*
+
 ```
 usage: satori-differ.py [-h] [--type {pickle,json,sqlite}] [--no-gzip]
                         [-v | --debug | --quiet]
@@ -94,16 +93,18 @@ usage: satori-differ.py [-h] [--type {pickle,json,sqlite}] [--no-gzip]
 
 Deeply diffs 2 satori Images
 ```
-  <b>Satori Differ</b> is the real magic! Here is how it works:
-<p>
-* Let's say you get your hands on a File System where something has gone wrong. Either you know it is 'rootable' (maybe a vulnhub VM?) or it has been under attack and there may exist a backdoor in it. Running the <b>Satori Imager</b> on it you acquire an image of it.
-* Given it is a Linux Distro you can find its clean form online. So by downloading, *checking the hash* and installing it in a VM you can run again the <b>Satori Imager</b> and get the clean image of the very same distribution.
+  **Satori Differ** is the real magic! Here is how it works:
+
+* Let's say you get your hands on a File System where something has gone wrong. Either you know it is 'rootable' (maybe a vulnhub VM?) or it has been under attack and there may exist a backdoor in it. Running the **Satori Imager** on it you acquire an image of it.
+* Given it is a Linux Distro you can find its clean form online. So by downloading, *checking the hash* and installing it in a VM you can run again the **Satori Imager** and get the clean image of the very same distribution.
 * Now, by running the <b>Satori Differ</b> in the 2 images (let's call them 'original' and 'dirty') you get every kind of difference between them, being _privilege_ alteration, different _size_ for crucial files, _missing_ or _renamed_ files, '_chowned_' files, etc...
-<p>
+
+
 There are even features for hash comparison of binaries (backdoored /bin/ files) and text-file 'diffing' for configuration files (you don't remember you allowed 'root login' in /etc/ssh/sshd_config ? ...well you maybe didn't!)
-<p><p><p>
+
+
 Well, while *Satori* doesn't reveal _vulnerabilities_ or _misconfiguration_, it gives you a place to start by showing you all the "*_Deviations_*" from the normal. And *Deviation* is the magic word in forensics!
-<p><p><br>
+
 
 
 
