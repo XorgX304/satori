@@ -1,6 +1,12 @@
 # Satori (悟り)
 <u>*A 'forensic oriented' filesystem image suite!*</u>
 
+----
+The project is being rewritten and is under heavy development:
+https://github.com/satori-ng/
+
+----
+
 Full Blog Post: https://securosophy.com/2016/08/10/the-satori-suite/
 ```
    ▄████████    ▄████████     ███      ▄██████▄     ▄████████  ▄█  
